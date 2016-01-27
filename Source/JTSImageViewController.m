@@ -435,6 +435,7 @@ typedef struct {
     self.scrollView.delegate = self;
     self.scrollView.zoomScale = 1.0f;
     self.scrollView.maximumZoomScale = 8.0f;
+    self.scrollView.alpha = 0.0f;
     self.scrollView.scrollEnabled = NO;
     self.scrollView.isAccessibilityElement = YES;
     self.scrollView.accessibilityLabel = self.accessibilityLabel;
@@ -1260,7 +1261,7 @@ typedef struct {
     
     UIViewController *presentingViewController = viewController.view.window.rootViewController;
     while (presentingViewController.presentedViewController) presentingViewController = presentingViewController.presentedViewController;
-    UIView *snapshot = [presentingViewController.view snapshotViewAfterScreenUpdates:YES];
+    UIView *snapshot = [presentingViewController.view snapshotViewAfterScreenUpdates:NO];
     snapshot.clipsToBounds = NO;
     return snapshot;
 }
